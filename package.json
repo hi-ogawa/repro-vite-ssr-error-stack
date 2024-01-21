@@ -1,0 +1,12 @@
+{
+  "name": "vite-starter",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "start": "node ./repro.mjs"
+  },
+  "devDependencies": {
+    "vite": "https://github.com/sapphi-red/vite-envs/raw/use-vite-runtime/vite-5.1.0-beta.2.tgz"
+  }
+}
