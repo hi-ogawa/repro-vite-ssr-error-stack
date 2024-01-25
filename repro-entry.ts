@@ -3,7 +3,7 @@ function f2() {
   console.log('[before ssrFixStacktrace]');
   console.log(e);
   console.log('[after ssrFixStacktrace]');
-  globalThis.__ssrFixStacktrace(e); // stackblitz cannot use ssrFixStacktrace?
+  globalThis.__ssrFixStacktrace(e);
   console.log(e);
 }
 
