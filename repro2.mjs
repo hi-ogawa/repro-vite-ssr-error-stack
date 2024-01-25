@@ -1,7 +1,10 @@
 import { createServer, createViteRuntime } from 'vite'
 
 const server = await createServer()
-const runtime = await createViteRuntime(server)
+const runtime = await createViteRuntime(server, {
+  // default for process.setSourceMapsEnabled(true)
+  // sourcemapInterceptor: "node",
+})
 
 globalThis.__ssrFixStacktrace = server.ssrFixStacktrace; // expose globally
 
