@@ -6,8 +6,8 @@ settings:
 
 devDependencies:
   vite:
-    specifier: https://github.com/sapphi-red/vite-envs/raw/1df93407a0053bc838a8cf81753e48bfc912231a/vite-5.1.0-beta.2.tgz
-    version: '@github.com/sapphi-red/vite-envs/raw/1df93407a0053bc838a8cf81753e48bfc912231a/vite-5.1.0-beta.2.tgz'
+    specifier: 5.1.0-beta.6
+    version: 5.1.0-beta.6
 
 packages:
 
@@ -412,10 +412,8 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: true
 
-  '@github.com/sapphi-red/vite-envs/raw/1df93407a0053bc838a8cf81753e48bfc912231a/vite-5.1.0-beta.2.tgz':
-    resolution: {tarball: https://github.com/sapphi-red/vite-envs/raw/1df93407a0053bc838a8cf81753e48bfc912231a/vite-5.1.0-beta.2.tgz}
-    name: vite
-    version: 5.1.0-beta.2
+  /vite@5.1.0-beta.6:
+    resolution: {integrity: sha512-Tnham+O97w9GAQfeYyh1wZF2iePQdr/MgU+8k23O8aa+DtUbAPTmg09CsFgIi4eMta2utRa0pOjSqtYIMcUKbQ==}
     engines: {node: ^18.0.0 || >=20.0.0}
     hasBin: true
     peerDependencies:
