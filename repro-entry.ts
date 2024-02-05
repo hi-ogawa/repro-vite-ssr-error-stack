@@ -1,9 +1,9 @@
+// @ts-ignore
+__myObject.BAD_KEY;
+
 function f2() {
   const e = new Error('hi');
-  console.log('[before ssrFixStacktrace]');
-  console.log(e);
-  console.log('[after ssrFixStacktrace]');
-  globalThis.__ssrFixStacktrace(e);
+  console.log(":::: ERROR ::::")
   console.log(e);
 }
 

@@ -1,3 +1,46 @@
+investigating https://github.com/vitejs/vite/issues/15771
+
+```sh
+$ node --enable-source-maps repro.mjs
+Sourcemap for "/home/hiroshi/Downloads/vite-ssr-error-stack/repro-entry.ts" points to missing source files
+:::: transformRequest ::::
+{
+  code: 'var define_myObject_default = {};\n' +
+    'define_myObject_default.BAD_KEY;\n' +
+    'function f2() {\n' +
+    '  const e = new Error("hi");\n' +
+    '  console.log(":::: ERROR ::::");\n' +
+    '  console.log(e);\n' +
+    '}\n' +
+    'function f1() {\n' +
+    '  f2();\n' +
+    '}\n' +
+    'function main() {\n' +
+    '  f1();\n' +
+    '}\n' +
+    'Object.defineProperty(__vite_ssr_exports__, "main", { enumerable: true, configurable: true, get(){ return main }});\n',
+  map: SourceMap {
+    version: 3,
+    mappings: 'AAAA,GAAG,CAAC,uBAAuB,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACjC,uBAAuB,CAAC,OAAO,CAAC;AAChC,QAAQ,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC;AACf,CAAC,CAAC,KAAK,CAAC,CAAC,CAAC,CAAC,CAAC,GAAG,CAAC,KAAK,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC;AAC5B,CAAC,CAAC,OAAO,CAAC,GAAG,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,KAAK,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACjC,CAAC,CAAC,OAAO,CAAC,GAAG,CAAC,CAAC,CAAC,CAAC;AACjB,CAAC;AACD,QAAQ,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC;AACf,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC;AACP,CAAC;AACM,QAAQ,CAAC,IAAI,CAAC,CAAC,CAAC,CAAC;AACxB,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC;AACP;mHAAC',
+    names: [],
+    sourceRoot: undefined,
+    sources: [ '<define:__myObject>' ],
+    sourcesContent: [ null ],
+    file: './repro-entry.ts'
+  },
+  deps: [],
+  dynamicDeps: []
+}
+:::: ERROR ::::
+Error: hi
+    at f2 (/home/hiroshi/Downloads/vite-ssr-error-stack/<define:__myObject>:4:13)
+    at f1 (/home/hiroshi/Downloads/vite-ssr-error-stack/<define:__myObject>:9:3)
+    at Module.main (/home/hiroshi/Downloads/vite-ssr-error-stack/<define:__myObject>:12:3)
+    at file:///home/hiroshi/Downloads/vite-ssr-error-stack/repro.mjs:13:5
+```
+
+---
+
 investigating `ssrFixStacktrace` https://github.com/vitejs/vite/issues/15490
 
 also testing with `ViteRuntime.executeEntrypoint` from https://github.com/vitejs/vite/pull/12165
